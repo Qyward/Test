@@ -20,11 +20,6 @@ namespace WebApplication2
             }
             app.UseStaticFiles();
 
-            app.MapGet("/", () =>
-            {
-                Results.BadRequest();
-            });
-
             app.Run();
         }
     }
