@@ -23,9 +23,14 @@ namespace WebApplication2
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.MapGet("/reg", (string email, string password) =>
+            app.MapGet("/reg", (string? email, string? password) =>
             {
+                if(email == null || password == null)
+                {
+                    return Results.BadRequest();
+                }
                 accounts.Add(new Account(email, password));
+                return Results.Created();
             });
             app.MapGet("/reg/list", () =>
             {
