@@ -18,8 +18,8 @@ namespace WebApplication2
             {
                 app.UseHttpLogging();
             }
+            app.UseDefaultFiles();
             app.UseStaticFiles();
-
             app.Run();
         }
     }
